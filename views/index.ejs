@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+
+    <title>Pearl Collection</title>
+
+    <!-- Link to CSS -->
+
+    <link rel="stylesheet" href="store.css">
+
+    <!-- Box Icon NPM link -->
+
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Paystack dependency script -->
+
+    <script src="https://js.paystack.co/v1/inline.js"></script> 
+
+    <script>
+        let testKey = '<%= TestKey %>'
+    </script>
+
+   
+    
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <!-- Logo -->
+
+        <div class="logo">
+
+            <i class='bx bxl-sketch'></i><a href="#" class="logo">Pearl-Collection</a>
+        
+        </div>
+
+        <!-- Navigation Bar -->
+
+        <div id="menu-icon">
+
+        <i class="bx bx-menu"></i>
+
+        </div>
+
+        <div class="navbar-menu">
+
+            
+        <ul class="navbar">
+
+            <li><a href="#home" data-id="home " class="new-menu active">HOME</a></li>
+
+            <li><a href="#about" data-id="about"  class="new-menu">ABOUT US</a></li>
+
+            <li><a href="#products" data-id="products"  class="new-menu">OUR PRODUCTS</a></li>
+
+            <li><a href="#new-arrivals" data-id= "new-arrivals"  class="new-menu">NEW-ARRIVALS</a></li>
+
+            <li><a href="#ceo" data-id="ceo"  class="new-menu">OUR CEO</a></li>
+
+            <li><a href="#FAQs" data-id="FAQS"  class="new-menu">FAQs</a></li>
+            
+            <li><a href="#customers" data-id="customers"  class="new-menu">TESTIMONIALS</a></li>
+
+        </ul>
+
+        </div>
+
+
+
+        <!-- Icons -->
+
+        <div class="header-icon">
+
+            <!-- Search Icon -->
+
+            <a href="#" id="sign-up-btn">Sign up</a>
+
+            <!-- Shopping Cart Icon -->
+
+            <div class="shopping-cart">
+
+                <i class='bx bxs-cart-add shopping-cart-display'><span id="item-accumulation">0</span></i>
+
+            </div>
+        
+        </div>
+
+
+
+    </header>
+
+    <!-- Home Section -->
+    <section class="home home-1" id="home"> 
+
+      
+          
+
+        <!-- Shopping Cart Container Display -->
+
+        <div class="cart-display">
+
+            <div class="cart-display-wrapper">
+
+                <h2 class="cart-title">My Cart List</h2>
+
+            </div>
+
+            <div class="cancel-button">
+
+                <span><i class='bx bx-x'></i></span>
+
+            </div>
+
+            <div class="all-out-cart-display" >
+
+                
+
+        
+  
+                <!-- <div class="cart-details">
+
+                    <div class="cart-item cart-column">
+
+                        <img class="cart-item-image" src="image2.png" width="100" height="100">
+                        
+                    </div>
+
+                    <span class="cart-item-title">T-Shirt</span>
+
+                    <span class="cart-product-price cart-column">$19.99</span>
+
+                    <div class="cart-quantity cart-column">
+
+                        <input class="cart-quantity-display" type="number" value="1">
+
+                        <button class="btn remove-btn" type="button">REMOVE</button>
+
+                    </div>
+
+                </div> -->
+
+            </div>
+
+            <!--Cart total-->
+
+            <div class="cart-total-container">
+
+                    <div class="cart-total">
+
+                        <h4 class="cart-total-title-header">Total:</h4>
+
+                        <div class="cart-value">&#x20A6; 0.00</div>
+
+                    </div>
+
+                    <div class="buttons">
+
+                        <div class="buttons-wrapper" id="buttons-wrapper">
+
+                            <button class="btn-purchase" type="button">PURCHASE</button>
+
+                           <button class="clear-btn" type="button">Clear Cart</button>
+
+                        </div>
+
+                        
+
+                    </div>
+                    
+               
+            </div>
+
+        </div>
+
+        <!-- Text Display -->
+
+        <div class="home-text">
+
+            <h1>Feel <span> the </span> quality</h1>
+
+            <!-- Text Paragraph -->
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Sequi, necessitatibus velit nobis temporibus corrupti, autem, <br> expedita accusamus officia quo fugiat doloremque sed. <br> Consequatur, odio. Quasi unde molestiae tempore obcaecati illum?</p>
+            
+            <!-- Shop Button -->
+            
+            <button class="btn"><a href="#">SHOP NOW</a></button>
+
+        </div> 
+
+
+    </section>
+
+        <!-- Excess background cover -->
+
+        <section class="background">
+
+            <div class="color"></div>
+    
+        </section>
+
+    <section id="paystack-payment-form">
+
+        
+        <form id="paymentForm">
+
+            <div class="form-group">
+
+              <h2 for="email">Email Address</h2>
+
+              <input type="email" id="email-address" required />
+
+            </div>
+          
+            <div class="form-group">
+
+              <h2 for="first-name">First Name</h2>
+
+              <input type="text" id="first-name" />
+
+            </div>
+            
+            <div class="form-group">
+              <h2 for="last-name">Last Name</h2>
+              <input type="text" id="last-name" />
+            </div>
+            <div class="form-group">
+                <h2 for="amount">Amount</h2>
+                <input type="tel" id="amount" required readonly />  
+              </div>
+            <div class="form-submit">
+              <button type="submit" onclick="payWithPaystack()"> Pay </button>
+            </div>
+          </form>
+
+          <h3 class="form-remove">Click   <span class="form-remove-link"> here </span>  to cancel transaction.</h3>
+    </section>
+
+    
+    <!-- About Section -->
+
+    <section class="home-1 about" id="about">
+       
+        <div class="about-wrapper">
+
+            <!-- Slider Image Display -->
+      
+            <div class="about-slider">
+
+                <div class="slider-wrapper">
+
+                    <div class="slide">
+
+                        <img src="ABOUT-IMAGE-SLIDER/about-photo-shoe.jpg" alt="">
+    
+                    </div>
+    
+                    <div class="slide">
+    
+                        <img src="ABOUT-IMAGE-SLIDER/abbout-photo-slider.jpg" alt="">
+    
+                    </div>
+            
+                    <div class="slide">
+    
+                        <img src="ABOUT-IMAGE-SLIDER/image3.png" alt="">
+    
+                    </div>
+    
+                    <div class="slide">
+    
+                        <img src="ABOUT-IMAGE-SLIDER/about-photo.jpg" alt="">
+    
+                    </div>
+
+                </div>
+                        <!-- Slide Button -->
+
+        <div class="slide-btn">
+            
+            <button class="prev">
+
+                    <span><i class='bx bx-chevron-left'></i></span>
+
+            </button>
+
+            <button class="next">
+
+                <span><i class='bx bx-chevron-right'></i></span>
+
+            </button>
+
+        </div> 
+            </div>
+
+            <!-- About Text -->
+
+            
+
+            <div class="about-text">
+
+                <h2 class="about-topic">ALL YOU NEED TO KNOW about our brand.</h2>
+            
+
+                <div class="button-preview">
+
+                    <button class="about-btn active" data-id="History">History</button>
+
+                    <button class="about-btn" data-id="Vision">Vision</button>
+
+                    <button class="about-btn" data-id="Goals">Goals</button>
+
+                </div>
+                
+                <div class="articles">
+
+                    <div class="about-articles active" id="History">
+
+                        <h3 class="about-text">HISTORY</h3>
+
+                        <p>E-commerce originated in a standard for the exchange of business documents, such as orders or invoices, between suppliers and their business customers. Those origins date to the 1948–49 Berlin blockade and airlift with a system of ordering goods primarily via telex, cupiditate accusantium porro totam quidem sed possimus amet ut. Id, iste ab. Explicabo omnis voluptatem perferendis dolorem delectus pariatur ab, laudantium odit. Placeat itaque, tempore et cum quia, tempora expedita libero cumque enim minima, atque fugiat. Ducimus totam iusto officiis, veritatis voluptas pariatur quasi nesciunt quos corporis, libero enim perspiciatis recusandae quis necessitatibus. Quaerat veniam eaque, culpa numquam incidunt cumque sint maiores magnam molestias? Itaque vero dolorum unde dignissimos sed totam quo odio, iusto, voluptates quisquam ipsam vel ex quam culpa eum nam, illo voluptatem a cum veritatis error veniam deserunt nostrum esse. Libero odit, et veritatis provident reiciendis placeat dicta odio necessitatibus cum deserunt ipsum sed minus perspiciatis ab possimus sint aspernatur quos inventore nam aliquid neque sunt. Corrupti sint vitae enim consequuntur autem id modi, praesentium nulla deleniti provident tempora consectetur atque facilis aliquam eos nam.</p>
+
+                    </div>
+
+                    <div class="about-articles" id="Vision">
+
+                        <h3 class="about-text">VISION</h3>
+
+                        <p>Good vision statements have common components: It is written in the present, not future tense. They describe what we will feel, hear, think, say and do as if we had reached our vision now. It is summarised with a powerful phrase. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos iusto nam atque nihil molestias dicta, quod laboriosam consectetur odio. Eum perferendis aliquam velit excepturi numquam? Vitae consequatur inventore voluptas asperiores nisi numquam magni ipsum, iusto labore, culpa quisquam fugit iste nulla minus necessitatibus quos eius animi repellendus eum? Sapiente enim possimus, quos nulla in neque quaerat minus nobis, similique, quasi sit optio repudiandae. Expedita delectus accusantium unde mollitia sit assumenda. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid perferendis, obcaecati ea ipsa odit totam! Veritatis similique porro ipsam voluptas quisquam. Sunt iste eum corrupti cumque error minima voluptatum! Rerum?</p>
+
+                    </div>
+
+                    <div class="about-articles" id="Goals">
+
+                        <h3 class="about-text">GOALS</h3>
+
+                        <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ad dignissimos distinctio, cupiditate accusantium porro totam quidem sed possimus amet ut. Id, iste ab. Explicabo omnis voluptatem perferendis dolorem delectus pariatur ab, laudantium odit. Placeat itaque, tempore et cum quia, tempora expedita libero cumque enim minima, atque fugiat. Ducimus totam iusto officiis, veritatis voluptas pariatur quasi nesciunt quos corporis, libero enim perspiciatis recusandae quis necessitatibus. Quaerat veniam eaque, culpa numquam incidunt cumque sint maiores magnam molestias? Itaque vero dolorum unde dignissimos sed totam quo odio, iusto, voluptates quisquam ipsam vel ex quam culpa eum nam, illo voluptatem a cum veritatis error veniam deserunt nostrum esse. Libero odit, et veritatis provident reiciendis placeat dicta odio necessitatibus cum deserunt ipsum sed minus perspiciatis ab possimus sint aspernatur quos inventore nam aliquid neque sunt. Corrupti sint vitae enim consequuntur autem id modi, praesentium nulla deleniti provident tempora consectetur atque facilis aliquam eos nam.</p>
+                        
+                    </div>
+
+                </div>
+                
+                
+             
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+    <!-- Product Description -->
+
+    <section class="home-1 products" id="products">
+
+        <!-- Product Description Heading -->
+
+        <div class="heading">
+
+            <h2>our popular products</h2>
+
+            <!-- Search bar -->
+
+            <form action="" class="search-bar-container">
+
+                <input type="text" class="search-bar" placeholder="Search for products...">
+
+            </form>
+
+            <!-- Product Item description -->
+
+      
+
+            <div class="products-container" id="products-container">
+
+                <div class="box-wrapper">
+
+                    <% items.products.forEach(function(item) { %>
+
+                        <div class="box" data-item-id="<%=item.id %>">
+
+                            <img src="PRODUCTS/<%= item.image %>" alt="" class="image-source">
+    
+                            <h2 class="product-name"><%=item.name %></h2>
+    
+                            <label for="cart-price-item"></label>
+      
+                            <h4 class="cart-price-item">&#x20A6; <%=item.price/100 %></h4>
+    
+                            <span class="cart-icon">
+    
+                                <i class="bx bxs-cart-add"></i>
+    
+                            </span>  
+    
+                        </div>
+                     
+                    <% }) %>
+                    
+         
+                    
+                
+
+
+                    
+    
+                    <!-- <div class="box">
+    
+                        <img src="PRODUCTS/product-5.jpg" alt="" class="image-source">
+    
+                        <h2 class="product-name">SHADES</h2>
+    
+                        <h4 class="cart-price-item">$32.76</h4>
+    
+                        <span class="cart-icon">
+    
+                            <i class="bx bxs-cart-add"></i>
+    
+                        </span> 
+    
+                    </div>
+    
+                    <div class="box">
+    
+                        <img src="PRODUCTS/brace.jpg" alt="" class="image-source">
+    
+                        <h2 class="product-name">Bracelet</h2>
+    
+                        <h4 class="cart-price-item">$9.81</h4>
+    
+                        <span class="cart-icon">
+    
+                            <i class="bx bxs-cart-add"></i>
+    
+                        </span>
+    
+                    </div>
+    
+                    <div class="box">
+    
+                        <img src="PRODUCTS/product-2.jpg" alt="" class="image-source">
+    
+                        <h2 class="product-name">Jacket</h2>
+    
+                        <h4 class="cart-price-item">$26.55</h4>
+    
+                        <span class="cart-icon">
+    
+                            <i class="bx bxs-cart-add"></i>
+    
+                        </span>
+    
+                    </div>
+    
+                    <div class="box">
+    
+                        <img src="PRODUCTS/Popular products 5.png" alt="" class="image-source">
+    
+                        <h2 class="product-name">Shirts</h2>
+    
+                        <h4 class="cart-price-item">$20.12</h4>
+    
+                        <span class="cart-icon">
+    
+                            <i class="bx bxs-cart-add"></i>
+    
+                        </span>
+    
+                    </div>
+    
+                    <div class="box">
+    
+                        <img src="PRODUCTS/products-1.jpg" alt="" class="image-source">
+    
+                        <h2 class="product-name">Shoes</h2>
+    
+                        <h4 class="cart-price-item">$22.94</h4>
+    
+                        <span class="cart-icon">
+    
+                            <i class="bx bxs-cart-add"></i>
+    
+                        </span>
+    
+                    </div>
+    
+                    <div class="box">
+    
+                        <img src="PRODUCTS/Popular products 2.png" alt="" class="image-source">
+    
+                        <h2 class="product-name">Accesories</h2>
+    
+                        <h4 class="cart-price-item">$24.68</h4>
+    
+                        <span class="cart-icon">
+    
+                            <i class="bx bxs-cart-add"></i>
+    
+                        </span>
+    
+                    </div>
+
+                    
+                    <div class="box">
+
+                        <img src="PRODUCTS/IMG-20220620-WA0008.jpg" alt="" class="image-source">
+    
+                        <h2 class="product-name">NECKCLACE</h2>
+    
+                        <h4 class="cart-price-item">$29.99</h4>
+    
+                        <span class="cart-icon">
+    
+                            <i class="bx bxs-cart-add"></i>
+    
+                        </span>  
+    
+                    </div>
+
+                    
+                    <div class="box">
+
+                        <img src="PRODUCTS\IMG-20220613-WA0012.jpg" alt="" class="image-source">
+    
+                        <h2 class="product-name">SLIDES</h2>
+    
+                        <h4 class="cart-price-item">$32.23</h4>
+    
+                        <span class="cart-icon">
+    
+                            <i class="bx bxs-cart-add"></i>
+    
+                        </span>  
+    
+                    </div> -->
+
+                
+                    
+                </div>
+   
+              
+                
+            </div>
+
+        </div>
+        
+    </section>
+    
+
+    <!-- New Arrivals of Products -->
+
+    <section class="new-arrivals home-1" id="new-arrivals">
+
+        <div class="new-arrival-text">
+
+            <!-- Header -->
+
+            <h4>LATEST ARRIVALS</h4>
+
+        </div>
+
+        <!-- Filter buttons -->
+
+        <div class="filter-btns">
+
+            <button type="button" class="btn-1 active" data-id="all">All</button>
+
+            <button type="button" class="btn-1" data-id="last 10 mins">10 mins ago</button>
+
+            <button type="button" class="btn-1" data-id="last 24 hours">24 hrs ago</button>
+
+            <button type="button" class="btn-1" data-id="last week">Last week</button>
+
+        </div>
+
+      
+
+        <!-- Products Description -->
+
+        <div class="products-stuff" id="products-stuff">
+
+            <div class="another-product-stuff" id="another-product-stuff">
+
+                <div class="some-other-product-stuff" id="some-other-product-stuff">
+
+                    <div class="new-products-description">
+
+                        <img src="NEW-ARRIVALS/image5.png" alt="" class="new-product-img">
+
+                        <h2 class="new-arrival-name">Vuition accesories</h2>
+
+                        <div class="new-product-price">
+
+                            <span>$25</span>
+
+                        </div>
+                        <div class="arrival-text">
+
+                            <h5>Arrived 24 hours ago</h5>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+              
+            </div>
+                          
+        </div>
+    
+    </section>
+
+    <!-- Excess background cover -->
+
+    <section class="background">
+
+        <div class="color"></div>
+
+    </section>
+
+    
+
+    <!-- CEO Container -->
+    
+    <section class="ceo home-1" id="ceo">
+
+        <!-- Owner Description -->
+
+        <div id="owner">
+
+            <h2>the woman who made it possible.</h2>
+
+            <!-- Space Cover -->
+
+            <h3></h3>
+
+            <!-- CEO Description -->
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe facilis eos dolorum necessitatibus illum, cupiditate magni animi dignissimos. Repellendus odit facilis dignissimos! Aperiam delectus consectetur soluta dolores ab debitis ipsam.</p>
+
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex ea ut inventore rem, necessitatibus quisquam, fugit nemo quaerat omnis error deleniti. Dolor tempora provident, veniam amet dignissimos eius corrupti totam.</p>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi delectus iure dolore dolorum veritatis saepe. Repudiandae doloremque, doloribus quibusdam, est blanditiis fugit pariatur incidunt aliquam architecto officiis asperiores voluptas ex?</p>
+
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem atque iusto temporibus fugiat corporis sequi aliquid fuga autem quia esse iste voluptatem dolores, nemo, sed earum suscipit laboriosam recusandae ratione!</p>
+
+        </div>
+
+      
+
+               
+
+        <!-- CEO Image -->
+
+        <div class="ceo-img">
+
+            <img src="CEO-PHOTO/CEO.png" alt="">
+
+        </div>
+
+    </section>
+
+    <!-- Extra space section -->
+
+    <section class="background1">
+
+        <div class="color"></div>
+
+    </section>
+
+    <!-- Frequently Asked Questions Section -->
+
+    <section class="FAQs home-1" id="FAQs">
+
+        <div class="question-container">
+
+            <!-- Header Text -->
+
+            <div class="heading-text">
+
+                <h2>Frequently Asked questions</h2>
+                <br>
+                <br>
+                <hr>   
+
+            </div>
+
+            <!-- Text Wrapper -->
+
+            <div class="question-container-Wrapper">
+
+                <h4>Do you carry out online transactions?</h4>
+
+                <!-- Question buttons -->
+                <button class="button-container">
+
+                    <span class="up-btn">
+
+                        <i class='bx bx-chevron-up'></i>
+
+                    </span>
+
+                    <span class="down-btn">
+
+                        <i class='bx bx-chevron-down'></i>
+
+                    </span>
+
+                </button>
+
+                <!-- Answers to Questions  -->
+
+                <div class="question-text-container">
+
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et enim dolore perspiciatis odio ducimus quia tempore excepturi consequatur minima ullam animi dicta officiis ipsum aliquid, iste id mollitia atque dignissimos. Vel harum maiores esse delectus autem neque qui blanditiis eligendi quibusdam tempore? Obcaecati quasi sapiente dolor ad autem velit, illo vitae, vel vero incidunt laborum commodi laboriosam ex veniam praesentium tempore assumenda facere aspernatur! Ut fugit, non quia eum incidunt sed tempore voluptatibus explicabo dolorem quasi, perferendis doloribus quibusdam quod!</p>
+                  
+                </div>
+              
+            </div>
+
+            <br>
+            
+            <hr>
+           
+            <br>
+            <hr>
+
+
+            <div class="question-container-Wrapper second-container">
+
+                <h4>Does this brand carry out inter-state shipping?</h4>
+
+                <button class="button-container">
+
+                    <span class="up-btn">
+
+                        <i class='bx bx-chevron-up'></i>
+
+                    </span>
+
+                    <span class="down-btn">
+
+                        <i class='bx bx-chevron-down'></i>
+
+                    </span>
+
+                </button>
+
+                <div class="question-text-container">
+
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et enim dolore perspiciatis odio ducimus quia tempore excepturi consequatur minima ullam animi dicta officiis ipsum aliquid, iste id mollitia atque dignissimos. Vel harum maiores esse delectus autem neque qui blanditiis eligendi quibusdam tempore? Obcaecati quasi sapiente dolor ad autem velit, illo vitae, vel vero incidunt laborum commodi laboriosam ex veniam praesentium tempore assumenda facere aspernatur! Ut fugit, non quia eum incidunt sed tempore voluptatibus explicabo dolorem quasi, perferendis doloribus quibusdam quod!</p>
+                  
+                </div>
+              
+            </div>
+
+            <br>
+            
+            <hr>
+           
+            <br>
+            <hr>
+            <div class="question-container-Wrapper third-container">
+
+                <h4>How long does it take to get discounts of sales?</h4>
+
+                <button class="button-container">
+                    
+                    <span class="up-btn">
+
+                        <i class='bx bx-chevron-up'></i>
+
+                    </span>
+
+                    <span class="down-btn">
+
+                        <i class='bx bx-chevron-down'></i>
+
+                    </span>
+
+                </button>
+
+                <div class="question-text-container">
+
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et enim dolore perspiciatis odio ducimus quia tempore excepturi consequatur minima ullam animi dicta officiis ipsum aliquid, iste id mollitia atque dignissimos. Vel harum maiores esse delectus autem neque qui blanditiis eligendi quibusdam tempore? Obcaecati quasi sapiente dolor ad autem velit, illo vitae, vel vero incidunt laborum commodi laboriosam ex veniam praesentium tempore assumenda facere aspernatur! Ut fugit, non quia eum incidunt sed tempore voluptatibus explicabo dolorem quasi, perferendis doloribus quibusdam quod!</p>
+                    
+                </div>
+              
+            </div>
+            <br>
+            
+            <hr>
+          
+            <br>
+            <hr>
+            <div class="question-container-Wrapper">
+            
+                <h4 class="title">What are your dropshipping criterias?</h4>
+
+                <button class="button-container">
+
+                    <span class="up-btn">
+
+                        <i class='bx bx-chevron-up'></i>
+
+                    </span>
+
+                    <span class="down-btn">
+
+                        <i class='bx bx-chevron-down'></i>
+
+                    </span>
+
+                </button>
+
+                <div class="question-text-container">
+
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et enim dolore perspiciatis odio ducimus quia tempore excepturi consequatur minima ullam animi dicta officiis ipsum aliquid, iste id mollitia atque dignissimos. Vel harum maiores esse delectus autem neque qui blanditiis eligendi quibusdam tempore? Obcaecati quasi sapiente dolor ad autem velit, illo vitae, vel vero incidunt laborum commodi laboriosam ex veniam praesentium tempore assumenda facere aspernatur! Ut fugit, non quia eum incidunt sed tempore voluptatibus explicabo dolorem quasi, perferendis doloribus quibusdam quod!</p>
+                  
+
+                </div>
+              
+            </div>
+            <br>
+            
+            <hr>
+           
+            <br>
+        
+        </div>
+
+    </section>
+
+    <!-- Testimonial Section -->
+
+    <section class="customers home-1" id="customers">
+
+        <div id="heading">
+
+            <h2 class="customers-text">What our customers are saying.</h2>
+
+        </div>
+
+        <div class="customers-container">
+
+                 <div class="box">
+
+                    <img src="TESTIMONIAL/TEST1.jpg" alt="">
+
+                    <h2>Oreoluwa Williams</h2>
+
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, ea dicta id illum perspiciatis exercitationem iste necessitatibus quidem harum nemo, suscipit et. Ratione dignissimos ea, rem recusandae aspernatur provident modi.</p>
+
+                    <i class='bx bxl-instagram-alt' ></i><h3>@we_lee</h3>
+
+                    <div class="stars">
+
+                        <i class="bx bxs-star"></i>
+
+                        <i class="bx bxs-star"></i>
+
+                        <i class="bx bxs-star"></i>
+
+                        <i class="bx bxs-star"></i>
+
+                        <i class="bx bxs-star-half"></i>
+                        
+                    </div>
+
+            </div>
+
+                <div class="box">
+
+                    <img src="TESTIMONIAL/TEST3.jpg" alt="">
+
+                    <h2>Osho Elizabeth</h2>
+
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, ea dicta id illum perspiciatis exercitationem iste necessitatibus quidem harum nemo, suscipit et. Ratione dignissimos ea, rem recusandae aspernatur provident modi.</p>
+
+                    <i class='bx bxl-instagram-alt' ></i><h3>@lizzy</h3>
+
+                    <div class="stars">
+
+                        <i class="bx bxs-star"></i>
+
+                        <i class="bx bxs-star"></i>
+
+                        <i class="bx bxs-star"></i>
+
+                        <i class="bx bxs-star"></i>
+
+                    </div>
+
+                </div>
+
+                    <div class="box">
+
+                        <img src="TESTIMONIAL/TEST2.jpg" alt="">
+
+                        <h2>Anitor Abraham</h2>
+
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, ea dicta id illum perspiciatis exercitationem iste necessitatibus quidem harum nemo, suscipit et. Ratione dignissimos ea, rem recusandae aspernatur provident modi.</p>
+
+                        <i class='bx bxl-instagram-alt' ></i><h3>@anitorabraham</h3>
+
+                        <div class="stars">
+
+                            <i class="bx bxs-star"></i>
+
+                            <i class="bx bxs-star"></i>
+
+                            <i class="bx bxs-star"></i>
+
+                            <i class="bx bxs-star"></i>
+
+                            <i class="bx bxs-star-half"></i>
+
+                        </div>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Newsletter Section -->
+
+    <section class="newsletter">
+
+        <!-- Newsletter Header -->
+
+        <h2>Enter email to always <br>get alerts on our new <br>products.</h2>
+
+        <!-- Input box -->
+
+        <form action="">
+
+            <input type="email" name="" placeholder="Enter email">
+
+            <button class="sub-btn"><a href="#">Subscribe</a></button>
+
+        </form>
+
+    </section>
+
+    <!-- Footer Section -->
+
+    <section class="footer">
+
+        <div class="footer-box">
+
+            <a href="#" class="logo"><i class='bx bxl-sketch'></i>Pearl-collection</a>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem vel vitae iste fuga soluta. Recusandae ipsum explicabo voluptatum ipsa repudiandae distinctio quibusdam, nam aperiam quisquam qui nobis iusto reiciendis cupiditate.</p>
+
+            <!-- Social Media Icons -->
+
+            <div class="social">
+
+                <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+
+                <a href="#"><i class='bx bxl-tiktok' ></i></a>
+
+                <a href="#"><i class='bx bxl-meta' ></i></a>
+
+                <a href="#"><i class='bx bxl-whatsapp' ></i></a>
+
+                <a href="#"><i class='bx bxl-twitter' ></i></a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Support Us</h3>
+
+            <li><a href="#">Products</a></li>
+
+            <li><a href="#">Help</a></li>
+
+            <li><a href="#">Return</a></li>
+
+            <li><a href="#">Terms of Use</a></li>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>View Guides</h3>
+
+            <li><a href="#">Payments</a></li>
+
+            <li><a href="#">Our Blogs</a></li>
+
+            <li><a href="#">Our partners</a></li>
+
+            <li><a href="#">Shop Now</a></li>
+
+        </div>
+
+        <!-- Contact Details -->
+
+        <div class="Contact">
+
+            <h3>Contact</h3>
+
+            <li><span><i class='bx bx-map' ></i> Agbara Ogun state, Nigeria</span></li>
+
+            <li><span><i class='bx bx-phone' ></i></span> +234 909 766 2208</li>
+
+            <li><span><i class='bx bx-envelope' ></i> Pearlcollection@gmail.com</span></li>
+
+        </div>
+
+        <!-- Copy-Right -->
+
+        <div class="copy-stuff">
+        
+            <h3>&copy; 2022 Pearl-Collection. All rights reserved</h3>
+
+            
+
+        </div>
+
+    </section>
+
+    <!-- Back to Top Button -->
+
+    <a href="#" class="to-top" id="to-top"><i class='bx bx-chevrons-up'></i></a>
+
+    <!-- Link to JavaScript -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

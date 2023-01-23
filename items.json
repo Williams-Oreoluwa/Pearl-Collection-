@@ -1,0 +1,60 @@
+{
+    "products" : [
+        {
+            "id":1,
+            "name":"NIKE",
+            "price":3000000,
+            "image":"products-1.jpg"
+        },
+        {
+            "id":2,
+            "name":"SHADES",
+            "price":2293200,
+            "image":"product-5.jpg"
+        },
+        {
+            "id":3,
+            "name":"BRACELET",
+            "price":686700,
+            "image":"brace.jpg"
+        },
+        {
+            "id":4,
+            "name":"JACKET",
+            "price":1858500,
+            "image":"product-2.jpg"
+        },
+        {
+            "id":5,
+            "name":"SHIRTS",
+            "price":1408400,
+            "image":"Popular products 5.png"
+        },
+        {
+            "id":6,
+            "name":"SHOES",
+            "price":1605800,
+            "image":"Popular products 3.png"
+        },
+        {
+            "id":7,
+            "name":"ACCESSORIES",
+            "price":1725500,
+            "image":"Popular products 2.png"
+        },
+        {
+            "id":8,
+            "name":"NECKLACE",
+            "price":2099300,
+            "image":"IMG-20220620-WA0008.jpg"
+
+        },
+        {
+            "id":9,
+            "name":"SLIDES",
+            "price":2256100,
+            "image":"IMG-20220613-WA0012.jpg"
+        }
+
+    ]
+}
